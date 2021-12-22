@@ -2,13 +2,19 @@ package test;
 
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Selenide.*;
+
 public class SelenideWiki {
 
     @Test
     void shouldFindSelenideWiki() {
        //открыть страницу гитхаба в бразере
+        open("https://github.com/");
 
-       //в поисковой строке ввести Selenide. Ентер
+        //в поисковой строке ввести Selenide кликнуть Ентер
+        $("[data-test-selector=nav-search-input]").setValue("Selenide").pressEnter();
+
+        sleep(5000);
 
        //клие на раздел Wiki
 
