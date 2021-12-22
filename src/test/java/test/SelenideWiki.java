@@ -16,10 +16,10 @@ public class SelenideWiki {
         $("[data-test-selector=nav-search-input]").setValue("Selenide").pressEnter();
         //клик на раздел Wiki
         $(byText("Wikis")).click();
+        //в списке элементов страницы найти SoftAssertions
+        $(byText("SoftAssertions")).click();
 
 
-
-        //Убедитесь, что в списке страниц (Pages) есть страница SoftAssertions
         //Откройте страницу SoftAssertions, проверьте что внутри есть пример кода для JUnit5
 
         sleep(5000);
