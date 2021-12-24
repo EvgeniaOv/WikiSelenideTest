@@ -19,13 +19,17 @@ public class SelenideWiki {
         open("https://github.com/");
         //в поисковой строке ввести Selenide кликнуть Ентер
         $("[data-test-selector=nav-search-input]").setValue("Selenide").pressEnter();
-        //клик на раздел Wiki
-        $(byText("Wikis")).click();
+        // перейти на проект Selenide
+        //в части стринцы с названием Ul (по коду) с классом repo-list есть раздед а,
+        // в котором есть прямая ссылка на переход в проект selenide. Кликаем на нее.
+        $("ul.repo-list a[href='/selenide/selenide']").click();
+        // клик на раздел Wiki
+        $(byText("Wiki")).click();
+        //на правой части экрана нажать Show more
+        $(".js-wiki-more-pages-link").click();
         //в списке элементов страницы должно быть SoftAssertions. клик на страницу SoftAssertions
-       // $(byLinkText("SoftAssertions")).shouldBe(visible).click();
-        $("#wiki_search_results").shouldHave(text("SoftAssertions"));
-        $("[title='SoftAssertions']").click();
+        $(byText("SoftAssertions")).click();
         //проверить, что внутри есть пример кода для JUnit5
-        $("#wiki-content").shouldHave(text("Using JUnit5 extend test class:"));
+        $(".markdown-body").shouldHave(text("Using JUnit5 extend test class:"));
     }
     }
